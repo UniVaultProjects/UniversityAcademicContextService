@@ -1,0 +1,86 @@
+# Compiled class files
+*.class
+
+# Logs and temp files
+logs/
+*.log
+hs_err_pid*
+!src/main/resources/logback.xml
+
+# IntelliJ IDEA files
+.idea/
+*.iml
+*.iws
+out/
+*.swp
+
+# Eclipse files
+.project
+.classpath
+.settings/
+*.prefs
+
+# Build directories
+/target/
+/build/
+
+# Maven specific
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+
+# Gradle specific
+.gradle/
+/build/
+gradle-app.setting
+!gradle/wrapper/gradle-wrapper.jar
+!gradle/wrapper/gradle-wrapper.properties
+
+# Node.js (if using frontend like React/Vue/Angular)
+node_modules/
+npm-debug.log
+yarn.lock
+
+# Docker
+docker-compose.override.yml
+*.dockerfile
+
+# Database files
+*.h2.db
+*.mv.db
+
+# Environment variables
+.env
+*.env
+
+# Spring Boot specific
+*.war
+*.jar
+
+# Lombok cache
+.lombok-cache/
+
+# Coverage reports
+/site/
+.jacoco/
+
+# SonarQube
+/.scannerwork/
+/.sonar/
+
+# Generated files
+/.mvn/
+target/
+bin/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# User-specific IDE settings
+.vscode/
