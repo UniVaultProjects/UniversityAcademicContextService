@@ -1,19 +1,21 @@
-package com.service.src.Utils;
+package com.service.src.Exceptions;
 
-import com.service.src.Utils.Institute.InstituteAlreadyExistsException;
-import com.service.src.Utils.Institute.InstituteNotFoundException;
+import com.service.src.Exceptions.Institute.InstituteAlreadyExistsException;
+import com.service.src.Exceptions.Institute.InstituteNotFoundException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-@ControllerAdvice
+@RestControllerAdvice
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(InstituteNotFoundException.class)
     public ResponseEntity<Object> UniversityNotFoundException(InstituteNotFoundException exception) {
         return ResponseEntity
-                .status(HttpStatus.NOT_FOUND)  // 404 Not Found
+                .status(HttpStatus.BAD_REQUEST)  // 404 Not Found
                 .body(exception.getMessage()); // The exception message is returned as the response body
     }
 

@@ -2,7 +2,7 @@ package com.service.src.Controller;
 
 import com.service.src.Entity.InstituteEntity;
 import com.service.src.Service.InstituteService;
-import com.service.src.Utils.Institute.InstituteAlreadyExistsException;
+import com.service.src.Exceptions.Institute.InstituteAlreadyExistsException;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,24 +20,12 @@ public class InstituteController {
     }
 
     @GetMapping("/")
-    public ResponseEntity<List<InstituteEntity>> getAllUniversitiesController(){
-       List<InstituteEntity> allUniversities = this.instituteService.getInstitutes();
-       return new ResponseEntity<>(allUniversities,HttpStatus.OK);
-    }
-
-    @PostMapping("/create")
-    public ResponseEntity<Object> createUniversityController(@RequestBody @Valid InstituteEntity instituteEntity){
+    public ResponseEntity<List<InstituteEntity>> GetAllInstitutesController(){
         try {
-            // Attempt to create the university
-            InstituteEntity createdEntity = instituteService.createInstitute(instituteEntity);
-
-            // Return a 201 Created response if the university is successfully created
-            return new ResponseEntity<>(createdEntity, HttpStatus.CREATED);
-
-        } catch (InstituteAlreadyExistsException e) {
-            return ResponseEntity
-                    .status(HttpStatus.BAD_REQUEST)  // 400 Bad Request status
-                    .body("Error: " + e.getMessage());  // Custom error message in the body
+            List<InstituteEntity> FetchAllInstitutes = instituteService.GetAllInstitutesService();
+            return new ResponseEntity<>(FetchAllInstitutes,HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(null,HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 }

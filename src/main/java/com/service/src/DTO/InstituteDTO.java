@@ -9,7 +9,7 @@ import java.util.UUID;
 public class InstituteDTO {
     private UUID id;
     private String name;
-    private String code;
+    private String shortname;
     private String description;
     private List<CourseDTO> courses;
 }

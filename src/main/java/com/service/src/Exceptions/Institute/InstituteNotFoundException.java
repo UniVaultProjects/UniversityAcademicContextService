@@ -1,4 +1,4 @@
-package com.service.src.Utils.Institute;
+package com.service.src.Exceptions.Institute;
 
 public class InstituteNotFoundException extends RuntimeException {
     public InstituteNotFoundException(String message) {
