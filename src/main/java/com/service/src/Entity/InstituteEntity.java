@@ -15,6 +15,7 @@ public class InstituteEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(columnDefinition = "BINARY(16)")
     private UUID id;
 
     @NotBlank(message = "University name is required")
@@ -33,7 +34,7 @@ public class InstituteEntity {
     @NotBlank(message = "University description is required")
     private String description;
 
-    @OneToMany(mappedBy = "Institute", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "institute", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<CourseEntity> courses;
 
 }

@@ -9,5 +9,5 @@ import java.util.UUID;
 
 @Repository
 public interface InstituteRepository extends JpaRepository<InstituteEntity, UUID> {
-    Optional<InstituteEntity> FindByNameAndCode(String name, String code);
+    Optional<InstituteEntity> findByName(String name);
 }

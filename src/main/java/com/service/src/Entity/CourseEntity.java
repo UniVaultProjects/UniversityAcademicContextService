@@ -5,7 +5,6 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
 
-import java.util.List;
 import java.util.UUID;
 
 @Data
@@ -33,10 +32,11 @@ public class CourseEntity {
     @NotBlank(message = "Course description is required")
     private String description;
 
+    @ManyToOne
     @JoinColumn(name = "institute_id", nullable = false)
     private InstituteEntity institute;
 
-    @OneToMany(mappedBy = "Course", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<BranchEntity> branches;
+//   @OneToMany(mappedBy = "Course", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+//   private List<BranchEntity> branches;
 
 }
