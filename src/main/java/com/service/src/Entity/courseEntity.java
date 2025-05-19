@@ -5,36 +5,38 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
 
-import java.util.List;
 import java.util.UUID;
 
 @Data
 @Entity
-@Table(name="Institute")
-public class InstituteEntity {
+@Table(name="Course")
+public class courseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(columnDefinition = "BINARY(16)")
     private UUID id;
 
-    @NotBlank(message = "University name is required")
+    @NotBlank(message = "Course name is required")
     @Size(min=3,max=100)
     private String name;
 
     @Size(min=3,max=100)
-    @NotBlank(message = "University shortname is required")
+    @NotBlank(message = "Course shortname is required")
     private String shortname;
 
     @Size(min=3,max=20)
-    @NotBlank(message = "University code is required")
+    @NotBlank(message = "Course code is required")
     private String code;
 
     @Size(min=3,max=100)
-    @NotBlank(message = "University description is required")
+    @NotBlank(message = "Course description is required")
     private String description;
 
-    @OneToMany(mappedBy = "institute", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<CourseEntity> courses;
+    @ManyToOne
+    @JoinColumn(name = "institute_id", nullable = false)
+    private instituteEntity institute;
+
+//   @OneToMany(mappedBy = "Course", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+//   private List<BranchEntity> branches;
 
 }

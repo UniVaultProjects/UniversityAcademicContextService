@@ -1,27 +1,25 @@
 package com.service.src.Exceptions;
 
-import com.service.src.Exceptions.Institute.InstituteAlreadyExistsException;
-import com.service.src.Exceptions.Institute.InstituteNotFoundException;
+import com.service.src.Exceptions.Institute.instituteAlreadyExistsException;
+import com.service.src.Exceptions.Institute.instituteNotFoundException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
-    @ExceptionHandler(InstituteNotFoundException.class)
-    public ResponseEntity<Object> UniversityNotFoundException(InstituteNotFoundException exception) {
+    @ExceptionHandler(instituteNotFoundException.class)
+    public ResponseEntity<Object> UniversityNotFoundException(instituteNotFoundException exception) {
         return ResponseEntity
                 .status(HttpStatus.BAD_REQUEST)  // 404 Not Found
                 .body(exception.getMessage()); // The exception message is returned as the response body
     }
 
-    @ExceptionHandler(InstituteAlreadyExistsException.class)
+    @ExceptionHandler(instituteAlreadyExistsException.class)
     public ResponseEntity<Object> UniversityAlreadyExistsException(
-            InstituteAlreadyExistsException exception) {
+            instituteAlreadyExistsException exception) {
         return ResponseEntity
                 .status(HttpStatus.BAD_REQUEST) // 400 Bad Request
                 .body(exception.getMessage());

@@ -1,6 +1,6 @@
 package com.service.src.Repository;
 
-import com.service.src.Entity.InstituteEntity;
+import com.service.src.Entity.instituteEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -8,6 +8,6 @@ import java.util.Optional;
 import java.util.UUID;
 
 @Repository
-public interface InstituteRepository extends JpaRepository<InstituteEntity, UUID> {
-    Optional<InstituteEntity> findByName(String name);
+public interface instituteRepository extends JpaRepository<instituteEntity, UUID> {
+    Optional<instituteEntity> findByName(String name);
 }
